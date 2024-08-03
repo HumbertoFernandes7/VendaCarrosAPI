@@ -1,8 +1,8 @@
 package com.github.humbertofernandes7.carros.services;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.github.humbertofernandes7.carros.entites.CarroEntity;
@@ -22,8 +22,8 @@ public class CarroService {
 		return carroRepository.save(carroConvertido);
 	}
 
-	public List<CarroEntity> listaTodosCarros() {
-		return carroRepository.findAll();
+	public Page<CarroEntity> listaTodosCarros(Pageable paginacao) {
+		return carroRepository.findAll(paginacao);
 	}
 
 	public CarroEntity buscaCarroPorId(Long id) {

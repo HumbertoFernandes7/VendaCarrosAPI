@@ -31,10 +31,10 @@ public class CarroEntity {
 	@Column(name = "modelo")
 	private String modelo;
 	
-	@Column(name = "valor")
+	@Column(name = "valor", precision = 10, scale = 3)
 	private BigDecimal valor;
 	
-	@Column(name = "foto")
+	@Column(name = "foto", columnDefinition = "TEXT")
 	private String foto;
 	
 	

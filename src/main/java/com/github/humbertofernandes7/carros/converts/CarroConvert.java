@@ -1,10 +1,8 @@
 package com.github.humbertofernandes7.carros.converts;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import com.github.humbertofernandes7.carros.dtos.inputs.CarroInput;
@@ -25,8 +23,8 @@ public class CarroConvert {
 		return modelMapper.map(carroEntity, CarroOutput.class);
 	}
 
-	public List<CarroOutput> listEntityToListOutput(List<CarroEntity> carrosEncontrados) {
-		return carrosEncontrados.stream().map(carros -> this.entityToOutput(carros)).collect(Collectors.toList());
+	public Page<CarroOutput> listEntityToListOutput(Page<CarroEntity> carrosEncontrados) {
+		return carrosEncontrados.map(this::entityToOutput);
 	}
 
 }
