@@ -41,18 +41,19 @@ public class CarroController {
 
 	@PutMapping("/admin/atualiza/{id}")
 	public CarroOutput atualizaCarro(@PathVariable Long id, @RequestBody CarroInput carroInput) {
+		carroService.buscaCarroPorId(id);
 		CarroEntity carroEntity = carroConvert.inputToEntity(carroInput);
 		return carroConvert.entityToOutput(carroService.atualizaCarro(carroEntity, id));
 	}
 
-	@GetMapping("/user/lista-todos")
+	@GetMapping("/lista-todos")
 	public Page<CarroOutput> listaTodosCarros(
 			@PageableDefault(page = 0, size = 10, sort = "valor", direction = Direction.DESC) Pageable paginacao) {
 		Page<CarroEntity> carrosEncontrados = carroService.listaTodosCarros(paginacao);
 		return carroConvert.listEntityToListOutput(carrosEncontrados);
 	}
 
-	@GetMapping("/user/busca/{id}")
+	@GetMapping("/busca/{id}")
 	public CarroOutput buscaCarroPorId(@PathVariable Long id) {
 		CarroEntity carroEncontrado = carroService.buscaCarroPorId(id);
 		return carroConvert.entityToOutput(carroEncontrado);

@@ -1,5 +1,7 @@
 package com.github.humbertofernandes7.carros.services;
 
+import javax.management.RuntimeErrorException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,7 +29,7 @@ public class CarroService {
 	}
 
 	public CarroEntity buscaCarroPorId(Long id) {
-		return carroRepository.findById(id).orElseThrow(() -> new RuntimeException("erro"));
+		return carroRepository.findById(id).orElseThrow(() -> new RuntimeErrorException(null, "Carro não encontrado pelo ID: " + id));
 	}
 
 	@Transactional
