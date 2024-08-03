@@ -17,8 +17,8 @@ public class ExecutaAposInicioDaAplicacao implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
-		if(usuarioService.listaTodosUsuarios().size() < 1) {
+
+		if (usuarioService.listaTodosUsuarios().size() < 2) {
 			UsuarioEntity usuarioAdmin = new UsuarioEntity();
 			usuarioAdmin.setId(1L);
 			usuarioAdmin.setLogin("admin");
@@ -26,7 +26,15 @@ public class ExecutaAposInicioDaAplicacao implements ApplicationRunner {
 			usuarioAdmin.setRole(RoleEnum.ADMIN);
 			usuarioAdmin.setSenha("admin");
 			usuarioService.cadastrarUsuario(usuarioAdmin);
+
+			UsuarioEntity usuarioUser = new UsuarioEntity();
+			usuarioUser.setId(2L);
+			usuarioUser.setLogin("user");
+			usuarioUser.setNome("Usuario");
+			usuarioUser.setRole(RoleEnum.USER);
+			usuarioUser.setSenha("user");
+			usuarioService.cadastrarUsuario(usuarioUser);
 		}
-	}		
+	}
 
 }

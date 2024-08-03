@@ -1,5 +1,9 @@
-{"properties": [{
-  "name": "carros.api.jwt.secret",
-  "type": "java.lang.String",
-  "description": "tokenSecret"
-}]}
+{
+	"properties": [
+		{
+			"name": "carros.api.jwt.secret",
+			"type": "java.lang.String",
+			"description": "tokenSecret"
+		}
+	]
+}
