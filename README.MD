@@ -37,7 +37,7 @@ body: {
 "senha": "user"
 }
 
-- Cadastrar carro: http://localhost:8080/carros/cadastrar
+- Cadastrar carro: http://localhost:8080/carros/admin/cadastrar
 
 body: {
 "nome": "nomeCarro",
@@ -47,7 +47,9 @@ body: {
 "foto": "fotoConvertidaEmBase64"
 }
 
-- Alterar carro: http://localhost:8080/carros/atualizar
+- Alterar carro: http://localhost:8080/carros/admin/atualiza/0
+
+No lugar de 0 coloque o ID do carro que deseja alterar.
 
 body: {
 "nome": "nomeCarro",
@@ -57,7 +59,7 @@ body: {
 "foto": "fotoConvertidaEmBase64"
 }
 
-- Deletar carro: http://localhost:8080/carros/deletar/0
+- Deletar carro: http://localhost:8080/carros/admin/deleta/0
 
 No lugar de 0 coloque o ID do carro que deseja deletar.
 
