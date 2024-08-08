@@ -19,4 +19,54 @@ Esta é uma simples API desenvolvida em Spring Boot para gerenciar uma pagina de
 
 1. Clone este repositório:
 2. importe em uma IDE de sua preferencia
+3. Algum aplicativo pode ser usado para testar as requisições, como o Postman.
+
+## Requisições
+
+- Login: http://localhost:8080/auth
+
+Administrador
+body: {
+"login": "admin",
+"senha": "admin"
+}
+
+Usuario
+body: {
+"login": "user",
+"senha": "user"
+}
+
+- Cadastrar carro: http://localhost:8080/carros/cadastrar
+
+body: {
+"nome": "nomeCarro",
+"marca": "marcaCarro",
+"modelo": "modeloCarro",
+"valor": "00.000"
+"foto": "fotoConvertidaEmBase64"
+}
+
+- Alterar carro: http://localhost:8080/carros/atualizar
+
+body: {
+"nome": "nomeCarro",
+"marca": "marcaCarro",
+"modelo": "modeloCarro",
+"valor": "00.000"
+"foto": "fotoConvertidaEmBase64"
+}
+
+- Deletar carro: http://localhost:8080/carros/deletar/0
+
+No lugar de 0 coloque o ID do carro que deseja deletar.
+
+- Listar todos os carros: http://localhost:8080/carros/lista-todos
+
+- Listar carro pelo ID: http://localhost:8080/carros/busca/0
+
+No lugar de 0 coloque o ID do carro que deseja listar.
+
+
+
 
